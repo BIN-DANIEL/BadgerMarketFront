@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 blacklivesdoesnotmatter
+=======
+blacklivesreallydoesn'tmatter
+>>>>>>> 26fffe8cd42c81163972b88fc9ebaaa51d7793e9
