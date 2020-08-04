@@ -1,0 +1,45 @@
+.ItemContainer {
+    position: relative;
+    left: 500px;
+    top: 100px;
+    height: 350px;
+    width: 250px;
+    border: solid 2px transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: space-between;
+    -webkit-align-items: center;
+}
+.ItemContainer:hover {
+    border:solid 2px dodgerblue;
+    -webkit-box-shadow:0px 3px 3px gray ;
+    -moz-box-shadow:0px 3px 3px gray ;
+    box-shadow:0px 3px 3px gray ;
+}
+
+.ItemPrice {
+    background: antiquewhite;
+}
+.ItemImageContainer {
+    height: 250px;
+    width: 100%; /*Extends from ItemContainer*/
+}
+.ItemDescription {
+    background-color: lightblue;
+    -webkit-flex-basis: 70px;
+    flex-basis: 70px;
+    width: 100%;
+}
+.ItemPrice {
+    flex-basis: 30px;
+    width: 100%;
+}
+.ItemImage {
+    height: 100%;
+    width: 100%;
+}
+
