@@ -10,7 +10,10 @@ class ItemContainer extends React.Component {
             "font-style": {
                 color: "black"
             }
-        }
+        };
+        this.urlToImage = "./src/demo.jpg";
+        this.itemDescription = "This is Item Description";
+        this.itemPrice = "This is Item Price";
     }
     handleMouseOver() {
         this.setState({"font-style": {
@@ -22,19 +25,28 @@ class ItemContainer extends React.Component {
                 color: "black"
             }})
     }
-  render() {
+    componentDidMount() {
+        let itemId = this.props.itemId; // 从MainBox中传递进来, 声明要被显示的Item的ID.
+        /**
+         * TO DO
+         * 根据Item ID, 来请求 urlToImage, itemDescription, itemPrice
+         * **/
+
+    }
+
+    render() {
 
       return (
           <div className={"ItemContainer"} onMouseEnter={this.handleMouseOver} onMouseLeave={this.handleMouseLeave}>
                 {/*<label>{this.props.itemTitle}</label>*/}
                 {/*src should be this.props.itemSrc, 现在只是展示Demo作为效果*/}
                 <div className={"ItemImageContainer"}>
-                  <img className={"ItemImage"} src={"./src/demo.jpg"}></img>
+                  <img className={"ItemImage"} src={this.urlToImage}></img>
                 </div>
                 {/*This should be this.props.description */}
                 {/*下面采用的是 inline style, 有最高优先级, 在.css 里面修改的时候要注意*/}
-                <div className={"ItemDescription"} style={this.state["font-style"]}>This is Item Description</div>
-                <div className={"ItemPrice"} style={this.state["font-style"]}>This is Item Price</div>
+                <div className={"ItemDescription"} style={this.state["font-style"]}>{this.itemDescription}</div>
+                <div className={"ItemPrice"} style={this.state["font-style"]}>{this.itemPrice}</div>
           </div>
 
       )
