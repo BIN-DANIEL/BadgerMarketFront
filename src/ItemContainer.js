@@ -1,7 +1,11 @@
 import React from "react";
 import {render} from "react-dom";
 import "./ItemContainer.css";
-class ItemContainer extends React.Component {
+
+/**
+ * This Component represents the Container of Item
+ */
+export class ItemContainer extends React.Component {
     constructor(props) {
         super(props);
         this.handleMouseLeave =  this.handleMouseLeave.bind(this);
