@@ -1,9 +1,7 @@
 .ItemContainer {
     position: relative;
-    left: 500px;
-    top: 100px;
-    height: 350px;
-    width: 250px;
+    height: 300px;
+    width: 220px;
     border: solid 2px transparent;
     display: flex;
     flex-direction: column;

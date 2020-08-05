@@ -1,0 +1,13 @@
+#DisplayBox {
+    height: 750px;
+    width: 683px;
+    background: lavender;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
+    -webkit-justify-content: flex-start;
+    overflow-y: scroll;
+}
+

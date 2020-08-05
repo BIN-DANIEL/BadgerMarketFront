@@ -1,7 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import ItemContainer from "ItemExpandContainer.js"
-import {DisplayBox} from "./DisplayBox";
+import DisplayBox from "./DisplayBox.js";
 
 /**
  * This is the Component responsible for displaying the main page.
@@ -27,3 +26,4 @@ class MainBox extends React.Component {
         )
     }
 }
+render(<MainBox/>, document.getElementById("demo"));
