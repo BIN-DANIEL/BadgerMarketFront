@@ -1,13 +1,15 @@
 import React from "react";
 import { render } from "react-dom";
+import MainBox from "./MainBox.js";
 
-class Demo extends React.Component {
-    render() {
+class Footer extends React.Component {
+    render(){
         return (
-            <div>
-                Demo!
+            <div>Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a>
+                from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
             </div>
         )
     }
-}
-render(<Demo />, document.getElementById("demo"));
+};
+render(<MainBox/>, document.getElementById("demo"));
+render(<Footer/>, document.getElementById("footer"));

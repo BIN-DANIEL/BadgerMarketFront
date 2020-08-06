@@ -1,6 +1,6 @@
 import React from "react";
 import ItemContainer from "./ItemContainer.js";
-import "./DisplayBox.css"
+import "./DisplayBox.css";
 /**
  * This is the Component used to display rows of Items
  */
@@ -25,3 +25,4 @@ export default class DisplayBox extends React.Component {
         )
     }
 }
+

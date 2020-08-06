@@ -1,29 +1,30 @@
 import React from "react";
 import { render } from "react-dom";
 import DisplayBox from "./DisplayBox.js";
-
+import CategoryBox from "./CategoryBox.js"
 /**
  * This is the Component responsible for displaying the main page.
  */
-class MainBox extends React.Component {
+export default class MainBox extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            category: Array(7).fill(null), // category[0] is default that displays random items
-            displayingCategory: 0,
+            categories: Array(8).fill("category"),
             itemsIdDisplayed: Array(8).fill("") // Item id of Items to be displayed
-        }
+        };
+        this.categoryOnClickHanlder = this.categoryOnClickHandler.bind(this);
     }
-    categoryBoxHandler(i) {
-        this.setState({
-            displayingCategory: i
-        })
+    categoryOnClickHandler(category) {
+
     }
+
     //By Shao Bin
     render() {
         return (
-            <DisplayBox itemsId = {this.state.itemsIdDisplayed}/>
+            <div>
+                <DisplayBox itemsId = {this.state.itemsIdDisplayed}/>
+                <CategoryBox handleClick={this.categoryOnClickHandler}/>
+            </div>
         )
     }
 }
-render(<MainBox/>, document.getElementById("demo"));
