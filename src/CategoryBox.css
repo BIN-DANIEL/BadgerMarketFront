@@ -2,15 +2,61 @@
     position: relative;
     left: 700px;
     bottom: 500px;
-    height: fit-content;
-    width: fit-content;
-    background-color: papayawhip;
+    height: 300px;
+    width: 400px;
+    background-color: #ffffff;
+    -webkit-box-shadow:0px 3px 3px #c8c8c8 ;
+    -moz-box-shadow:0px 3px 3px #c8c8c8 ;
+    box-shadow:0px 3px 10px 2px #c8c8c8 ;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+
 }
-.Category:hover {
-    background-color: dodgerblue;
-    color: orangered;
+.category {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-around;
+    border: solid 2px transparent;
+}
+
+#IconWrapper{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
 }
 .CategoryIcon {
     height: 30px;
     width: 30px;
+}
+#CategoryWrapper {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+}
+#CategoryInCN{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+}
+.colored {
+    color:#e13128;
+    cursor: pointer;
+    position: relative;
+    top: 1px;
+}
+.selectEffect {
+    border-left: solid 2px black;
+    padding-left: 2px;
 }

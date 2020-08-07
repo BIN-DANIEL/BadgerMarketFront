@@ -1,7 +1,8 @@
 import React from "react";
 import { render } from "react-dom";
 import DisplayBox from "./DisplayBox.js";
-import CategoryBox from "./CategoryBox.js"
+import CategoryBox from "./CategoryBox.js";
+import SearchBar from "./SearchBar.js";
 /**
  * This is the Component responsible for displaying the main page.
  */
@@ -24,6 +25,7 @@ export default class MainBox extends React.Component {
             <div>
                 <DisplayBox itemsId = {this.state.itemsIdDisplayed}/>
                 <CategoryBox handleClick={this.categoryOnClickHandler}/>
+                <SearchBar/>
             </div>
         )
     }
