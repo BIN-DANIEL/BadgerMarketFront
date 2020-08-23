@@ -50,15 +50,18 @@ export default class Login extends React.Component {
                     <div className={"RegisterDiv"} onClick={this.inRegArea}><div>Register</div></div>
                     <p className={"WarningArea"}>Please Enter</p>
                     <div className={"LoginArea"}>
-                        <div>
+                        <div className={"LoginInputWrapper"}>
                             <img className={"LoginIcon"} src={"./src/resources/user.png"}/>
                             <input placeholder={"username"} className={"LoginInput"} id={"Username"} onClick={this.disableInputClickEffect}></input>
                         </div>
-                        <div>
+                        <div className={"LoginInputWrapper"}>
                             <img className={"LoginIcon"} src={"./src/resources/password.png"}/>
                             <input placeholder={"password"} className={"LoginInput"} id={"Password"} type={"password"} onClick={this.disableInputClickEffect}></input>
                         </div>
+                        <div className={"LoginButtons"}>
                         <button type={"button"} onClick={this.props.handleLogin}>Login</button>
+                        <button type={"button"} >Guest</button>
+                        </div>
                     </div>
 
                 </form>
