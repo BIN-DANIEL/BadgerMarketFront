@@ -3,32 +3,35 @@
     display: -webkit-flex;
     height: fit-content;
     width: fit-content;
-    position: relative;
-    bottom: 450px;
-    left: 700px;
 }
 .SearchContent {
 
     outline: none;
     height: 40px;
     width: 400px;
-    border-right: none;
-    border-top:solid 1px black;
-    border-left:solid 1px black ;
-    border-bottom:solid 1px black ;
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
+    border: none;
+    /*border-top:solid 1px black;*/
+    /*border-left:solid 1px black ;*/
+    /*border-bottom:solid 1px black ;*/
+    /*border-top-left-radius: 7px;*/
+    /*border-bottom-left-radius: 7px;*/
     font-size: 18px;
 
 
 }
 .SearchContent:hover {
-    background-color: #EEE2E0;
+    background-color: whitesmoke;
     transition: 0.5s;
+    -webkit-box-shadow:3px 3px 3px #B8B1B1  ;
+    -moz-box-shadow:3px 3px 3px #B8B1B1  ;
+    box-shadow:0px 1px 5px 3px #B8B1B1  ;
 }
 .SearchSubmit:hover {
-    background-color:#F57A60;
+    background-color: lightgray;
     transition: 0.3s;
+    -webkit-box-shadow:3px 3px 3px #B8B1B1  ;
+    -moz-box-shadow:3px 3px 3px #B8B1B1  ;
+    box-shadow:0px 3px 5px 3px #B8B1B1  ;
 }
 #SearchBar > .SearchContentHover {
     height: 42px;
@@ -45,12 +48,19 @@
     border-right: solid 2px black ;
     border-left: none;
 }
+.SearchSubmit:active {
+    transition: 0.3s;
+    background-color: white;
+    -webkit-box-shadow:3px 3px 3px #B8B1B1  ;
+    -moz-box-shadow:3px 3px 3px #B8B1B1  ;
+    box-shadow:0px 3px 5px 3px #B8B1B1  ;
+}
 .SearchSubmit {
-    height: 38px;
-    border-top:solid 1px black;
-    border-bottom:solid 1px black ;
-    border-right: solid 1px black ;
-    border-left: none;
-    border-bottom-right-radius: 15%;
-    border-top-right-radius: 15%;
+    outline: none;
+    height: 40px;
+    /*border-top:solid 1px black;*/
+    /*border-bottom:solid 1px black ;*/
+    /*border-right: solid 1px black ;*/
+    /*border-left: none;*/
+    background-color: white;
 }

@@ -1,13 +1,10 @@
 #CategoryBox {
-    position: relative;
-    left: 700px;
-    bottom: 500px;
     height: 300px;
     width: 400px;
-    background-color: #ffffff;
-    -webkit-box-shadow:0px 3px 3px #c8c8c8 ;
-    -moz-box-shadow:0px 3px 3px #c8c8c8 ;
-    box-shadow:0px 3px 10px 2px #c8c8c8 ;
+    background-color: white;
+    -webkit-box-shadow:3px 20px 8px #B8B1B1  ;
+    -moz-box-shadow:3px 20px 8px #B8B1B1  ;
+    box-shadow:0px 3px 20px 8px #B8B1B1  ;
     display: -webkit-flex;
     display: flex;
     justify-content: space-around;
@@ -58,5 +55,4 @@
 }
 .selectEffect {
     border-left: solid 2px black;
-    padding-left: 2px;
 }

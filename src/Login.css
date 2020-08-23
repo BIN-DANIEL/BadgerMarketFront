@@ -1,0 +1,146 @@
+#Login {
+    height: 300px;
+    width: 400px;
+    background-color: white;
+    -webkit-box-shadow:3px 20px 8px #B8B1B1  ;
+    -moz-box-shadow:3px 20px 8px #B8B1B1  ;
+    box-shadow:0px 3px 20px 8px #B8B1B1  ;
+}
+#Login p {
+    display: block;
+    visibility: hidden;
+
+}
+.LoginDiv, .RegisterDiv {
+    height: 45px;
+    width: 197px;
+    font-size: 30px;
+    text-align: center;
+}
+.LoginDiv:hover {
+    border-color: black;
+    cursor: pointer;
+    background-color: #EEEDED;
+}
+.LoginDiv:active {
+    background-color: #DAD5D5;
+}
+#Login .RegisterDiv:active {
+    background-color: #DAD5D5;
+}
+.RegisterDiv:hover {
+    border-color: black;
+    cursor: pointer;
+    background-color: #EEEDED;
+}
+.RegRePassword {
+    position: relative;
+    bottom: 26px;
+}
+.RegPassword {
+    position: relative;
+    bottom: 13px;
+}
+.WarningArea {
+    text-align: center;
+    position: relative;
+    bottom: 20px;
+
+    color: #e53b3e;
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    width: 396px;
+    height: fit-content;
+
+}
+.LoginDiv {
+    display: inline-block;
+    border: groove 2px transparent;
+    border-right: groove 1px lightgray;
+}
+.RegisterDiv {
+    border: groove 2px transparent;
+    border-left: groove 1px lightgray;
+    float:right;
+}
+.LoginArea , .RegisterArea {
+    position: relative;
+    bottom: 20px;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    align-items: center;
+    -webkit-align-items: center;
+}
+.RegisterButton {
+    position: relative;
+    bottom: 30px;
+    align-items: center;
+    height: 40px;
+    width: 100px;
+}
+.RegisterArea {
+    height: 250px;
+    bottom: 45px;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+}
+.RegInput {
+    position: relative;
+
+}
+.LoginArea div{
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+}
+.RegisterArea div{
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+}
+#Login button {
+    font-size: 20px;
+    border: solid 2px black;
+    height: 40px;
+    width: 100px;
+    outline: none;
+}
+#Login button:hover {
+    cursor: pointer;
+    background-color: #CBC5C5;
+}
+#Login button:active {
+    position: relative;
+    top:2px;
+    left: 1px;
+}
+.LoginIcon {
+    height: 32px;
+    width: 32px;
+    border: solid 2px black;
+    padding: 5px 5px 5px 5px;
+    position: relative;
+    right: 30px;
+}
+.LoginInput {
+    position: relative;
+    right: 30px;
+    outline: none;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    font-size: 20px;
+    width: 250px;
+    height: 40px;
+    border: solid 2px black;
+    border-left: none;
+}

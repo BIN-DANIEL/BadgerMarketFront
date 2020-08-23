@@ -1,7 +1,8 @@
 import React from "react";
 import { render } from "react-dom";
 import MainBox from "./MainBox.js";
-import "./index.css"
+import "./index.css";
+import $ from "jquery";
 class Footer extends React.Component {
     render(){
         return (

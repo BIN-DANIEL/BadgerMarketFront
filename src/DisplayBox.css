@@ -1,7 +1,7 @@
 #DisplayBox {
     height: 750px;
-    width: 683px;
-    background: lavender;
+    width: 900px;
+    background: white;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -9,5 +9,8 @@
     -webkit-flex-wrap: wrap;
     -webkit-justify-content: flex-start;
     overflow-y: scroll;
+    -webkit-box-shadow:3px 20px 8px #B8B1B1  ;
+    -moz-box-shadow:3px 20px 8px #B8B1B1  ;
+    box-shadow:0px 3px 20px 8px #B8B1B1  ;
 }
 
