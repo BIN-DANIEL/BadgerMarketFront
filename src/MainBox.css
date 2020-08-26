@@ -5,7 +5,7 @@
     display:  -moz-grid;
     grid-template-columns: [c0] 500px [c1] 500px [c2] 300px [c3] 100px [c4];
     grid-template-rows: [r0] 100px [r1] 350px [r2] 350px [r3] 100px [r4] 100px [r5];
-    grid-template-areas: '.      searchBar .            .'
+    grid-template-areas: 'login      searchBar .            .'
                          'login  main      main         .'
                          'nav    main      main         .'
                          '.      main      main         .';

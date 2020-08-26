@@ -5,6 +5,7 @@ import CategoryBox from "./CategoryBox.js";
 import SearchBar from "./SearchBar.js";
 import Login from "./Login";
 import "./MainBox.css";
+import URLs from "./URLs.js";
 /**
  * This is the Component responsible for displaying the main page.
  */
@@ -21,6 +22,10 @@ export default class MainBox extends React.Component {
         this.handleSearch = this.handleSearch.bind(this);
     }
     categoryOnClickHandler(category) {
+
+    }
+    validateUserInput(input) {
+        let reg = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？%+_]");
 
     }
     handleSearch(e) {
@@ -42,6 +47,18 @@ export default class MainBox extends React.Component {
             $(".WarningArea").css("visibility", "visible");
             return;
         }
+        //TO DO: Need to parse User Input.
+        let url = URLs.buildLoginURL(username, password);
+        $.ajax({
+            url: url,
+            method: 'GET',
+            error: (jqXHR, textStatus, errorThrown) => {
+                console.log(errorThrown)
+            }
+        }).done((data, textStatus, jqXHR)=>{
+            console.log(data);
+        })
+
     }
     //By Shao Bin
     render() {
