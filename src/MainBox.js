@@ -15,11 +15,16 @@ export default class MainBox extends React.Component {
         this.state = {
             categories: Array(8).fill("category"),
             itemsIdDisplayed: Array(8).fill(""), // Item id of Items to be displayed
-            userId: null
         };
         this.categoryOnClickHanlder = this.categoryOnClickHandler.bind(this);
-        this.loginOnClickHandler = this.loginOnClickHandler.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+        this.userLogined = this.userLogined.bind(this);
+        this.username =  null;
+        this.password = null;
+        this.qq = null;
+        this.weChat = null;
+        this.mail = null;
+        this.phone = null;
     }
     categoryOnClickHandler(category) {
 
@@ -31,52 +36,31 @@ export default class MainBox extends React.Component {
     handleSearch(e) {
         e.preventDefault();
     }
-    loginOnClickHandler(e) {
-        e.preventDefault();
-        let username = $("#Username").val();
-        username = username.trim();
-        let password = $("#Password").val();
-        password = password.trim()
-        if (username === "") {
-            $(".WarningArea").text("Please Enter The Username!");
-            $(".WarningArea").css("visibility", "visible");
-            return;
-        }
-        if (password === "") {
-            $(".WarningArea").text("Please Enter The Password!");
-            $(".WarningArea").css("visibility", "visible");
-            return;
-        }
-        //TO DO: Need to parse User Input.
-        let url = URLs.buildLoginURL(username, password);
-        $.ajax({
-            url: url,
-            method: 'GET',
-            error: (jqXHR, textStatus, errorThrown) => {
-                console.log(errorThrown)
-            }
-        }).done((data, textStatus, jqXHR)=>{
-            console.log(data);
-        })
-
+    userLogined(userInfo) {
+        this.username = userInfo.username;
+        this.password = userInfo.password;
+        this.qq = userInfo.qq;
+        this.weChat = userInfo.weChat;
+        this.mail = userInfo.mail;
+        this.phone = userInfo.phone;
     }
     //By Shao Bin
     render() {
-        return (
-            <div className={"MainBox"}>
-                <div className={"DisplayBox_Main"}>
-                    <DisplayBox itemsId = {this.state.itemsIdDisplayed}/>
+            return (
+                <div className={"MainBox"}>
+                    <div className={"DisplayBox_Main"}>
+                        <DisplayBox itemsId = {this.state.itemsIdDisplayed}/>
+                    </div>
+                    <div className={"CategoryBox_Main"}>
+                        <CategoryBox handleClick={this.categoryOnClickHandler}/>
+                    </div>
+                    <div className={"SearchBar_Main"}>
+                        <SearchBar handleSearch = {this.handleSearch} />
+                    </div>
+                    <div className={"Login_Main"}>
+                        <Login userLogined={this.userLogined}/>
+                    </div>
                 </div>
-                <div className={"CategoryBox_Main"}>
-                    <CategoryBox handleClick={this.categoryOnClickHandler}/>
-                </div>
-                <div className={"SearchBar_Main"}>
-                    <SearchBar handleSearch = {this.handleSearch} />
-                </div>
-                <div className={"Login_Main"}>
-                    <Login handleLogin={this.loginOnClickHandler}/>
-                </div>
-            </div>
-        )
+            )
     }
 }

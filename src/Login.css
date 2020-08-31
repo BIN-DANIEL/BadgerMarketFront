@@ -6,33 +6,136 @@
     -moz-box-shadow:3px 20px 8px #B8B1B1  ;
     box-shadow:0px 3px 20px 8px #B8B1B1  ;
 }
+.InfoToUser {
+    font-size: 16px;
+    font-weight: bold;
+}
+.WelcomeInfo {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+.LoginedDiv {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    align-items: center;
+    -webkit-align-items: center;
+}
+.ContactInfo {
+    height: 245px;
+    width: 400px;
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    align-items: center;
+    -webkit-align-items: center;
+}
+.InfoContainer {
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+}
+.InfoWrapper label {
+    width: 60px;
+    height: 40px;
+
+    position: relative;
+    top: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.InfoButton {
+    position: relative;
+    top:5px;
+
+}
+.InfoButtons {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+}
+.InfoWrapper label:after {
+    content: ":";
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    left: 5px;
+}
+.InfoWrapper input {
+    font-size: 20px;
+    width: 250px;
+    height: 40px;
+    border: solid 2px black;
+    outline: none;
+}
+.InfoWrapper {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    height: 220px;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    align-items: center;
+    -webkit-align-items: center;
+}
 #Login p {
     display: block;
     visibility: hidden;
 
 }
+.LogOutButton {
+    height: 40px;
+    width: 100px;
+}
+.LoginDiv {
+    display: inline-block;
+    /*border: groove 2px transparent;*/
+    /*border-right: groove 1px lightgray;*/
+}
+.RegisterDiv {
+    /*border: groove 2px transparent;*/
+    /*border-left: groove 1px lightgray;*/
+    float:right;
+}
 .LoginDiv, .RegisterDiv {
     height: 45px;
-    width: 197px;
+    width: 200px;
     font-size: 30px;
     text-align: center;
 }
-.LoginDiv:hover {
-    border-color: black;
+.notSelectEffect {
+    background-color: #DAD5D5;
+}
+.hoverEffect:hover {
     cursor: pointer;
     background-color: #EEEDED;
 }
-.LoginDiv:active {
-    background-color: #DAD5D5;
-}
-#Login .RegisterDiv:active {
-    background-color: #DAD5D5;
-}
-.RegisterDiv:hover {
-    border-color: black;
-    cursor: pointer;
-    background-color: #EEEDED;
-}
+
+/*.LoginDiv:active {*/
+/*    background-color: #DAD5D5;*/
+/*}*/
+/*#Login .RegisterDiv:active {*/
+/*    background-color: #DAD5D5;*/
+/*}*/
 .RegRePassword {
     position: relative;
     bottom: 26px;
@@ -53,16 +156,6 @@
     width: 396px;
     height: fit-content;
 
-}
-.LoginDiv {
-    display: inline-block;
-    border: groove 2px transparent;
-    border-right: groove 1px lightgray;
-}
-.RegisterDiv {
-    border: groove 2px transparent;
-    border-left: groove 1px lightgray;
-    float:right;
 }
 .LoginArea , .RegisterArea {
     position: relative;
