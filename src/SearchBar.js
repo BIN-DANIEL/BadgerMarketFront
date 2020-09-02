@@ -5,24 +5,6 @@ export default class SearchBar extends React.Component {
     constructor(props) {
         super(props);
     }
-    // componentDidMount() {
-    //     $(".SearchContent").mouseover(()=>{
-    //         $(".SearchContent").addClass("SearchContentHover");
-    //         $(".SearchSubmit").addClass("SearchSubmitHover");
-    //     });
-    //     $(".SearchSubmit").mouseover(()=>{
-    //         $(".SearchContent").addClass("SearchContentHover");
-    //         $(".SearchSubmit").addClass("SearchSubmitHover");
-    //     });
-    //     $(".SearchContent").mouseleave(()=>{
-    //         $(".SearchContent").removeClass("SearchContentHover");
-    //         $(".SearchSubmit").removeClass("SearchSubmitHover");
-    //     });
-    //     $(".SearchSubmit").mouseleave(()=>{
-    //         $(".SearchContent").removeClass("SearchContentHover");
-    //         $(".SearchSubmit").removeClass("SearchSubmitHover");
-    //     });
-    // }
 
     render() {
        return(

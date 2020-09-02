@@ -3,14 +3,17 @@
     height: 100%;
     display: grid;
     display:  -moz-grid;
-    grid-template-columns: [c0] 500px [c1] 500px [c2] 300px [c3] 100px [c4];
-    grid-template-rows: [r0] 100px [r1] 350px [r2] 350px [r3] 100px [r4] 100px [r5];
+    grid-template-columns: [c0] 450px [c1] 500px [c2] 415px [c3] 300px [c4];
+    grid-template-rows: [r0] 100px [r1] 350px [r2] 350px [r3] 100px [r4] 300px [r5];
     grid-template-areas: '.        searchBar .            .'
-                         'login    main      main         .'
-                         'nav      main      main         .'
-                         '.        main      main         .'
+                         'login    main      main         service'
+                         'nav      main      main         service'
+                         '.        main      main         service'
                          '.        .         .            .';
     grid-gap: 10px 10px;
+}
+.UserService_Main {
+    grid-area: service;
 }
 .MainBox_Logined {
     width: 100%;

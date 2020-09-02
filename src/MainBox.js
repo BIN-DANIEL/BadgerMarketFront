@@ -3,7 +3,8 @@ import { render } from "react-dom";
 import DisplayBox from "./DisplayBox.js";
 import CategoryBox from "./CategoryBox.js";
 import SearchBar from "./SearchBar.js";
-import Login from "./Login";
+import Login from "./Login.js";
+import UserService from "./UserService.js";
 import "./MainBox.css";
 import URLs from "./URLs.js";
 /**
@@ -15,10 +16,12 @@ export default class MainBox extends React.Component {
         this.state = {
             categories: Array(8).fill("category"),
             itemsIdDisplayed: Array(8).fill(""), // Item id of Items to be displayed
+            login: false
         };
         this.categoryOnClickHanlder = this.categoryOnClickHandler.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.userLogined = this.userLogined.bind(this);
+        this.userLogOut = this.userLogOut.bind(this);
         this.username =  null;
         this.password = null;
         this.qq = null;
@@ -43,6 +46,16 @@ export default class MainBox extends React.Component {
         this.weChat = userInfo.weChat;
         this.mail = userInfo.mail;
         this.phone = userInfo.phone;
+        this.setState({login: true})
+    }
+    userLogOut() {
+        this.username = null;
+        this.password = null;
+        this.qq = null;
+        this.weChat = null;
+        this.mail = null;
+        this.phone = null;
+        this.setState({login: false})
     }
     //By Shao Bin
     render() {
@@ -58,7 +71,10 @@ export default class MainBox extends React.Component {
                         <SearchBar handleSearch = {this.handleSearch} />
                     </div>
                     <div className={"Login_Main"}>
-                        <Login userLogined={this.userLogined}/>
+                        <Login userLogOut={this.userLogOut} userLogined={this.userLogined}/>
+                    </div>
+                    <div className={"UserService_Main"}>
+                        <UserService/>
                     </div>
                 </div>
             )

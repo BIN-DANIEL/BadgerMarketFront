@@ -13,6 +13,7 @@ export default class Login extends React.Component {
         this.handleLogin = this.handleLogin.bind(this);
         this.handleContactInfo = this.handleContactInfo.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleLogOut = this.handleLogOut.bind(this);
         this.state = {
             area: "login"
         };
@@ -90,6 +91,9 @@ export default class Login extends React.Component {
                     this.setState({area:"logined"})
                 } else {
                     // TODO: Display Error Message
+                    $(".WarningArea").text("username/password incorrect");
+                    $(".WarningArea").css("visibility", "visible");
+                    return;
                 }
             })
         }
@@ -170,6 +174,7 @@ export default class Login extends React.Component {
             }
         }).done((data, textStatus, jqXHR)=>{
             if (data.regSuccess) {
+                this.props.userLogined(this.userInfo);
                 this.setState({area: "logined"});
             } else {
                 $(".InfoToUser").text("Server Error: Wait For A While and Re-Try");
@@ -187,6 +192,11 @@ export default class Login extends React.Component {
         if (e.currentTarget.value.includes(" ")) {
             e.currentTarget.value = e.currentTarget.value.replace(/\s/g, "");
         }
+    }
+    handleLogOut(e) {
+        e.preventDefault();
+        this.props.userLogOut();
+        this.setState({area: "login"});
     }
     render() {
         if (this.state.area === "login") {
@@ -227,7 +237,7 @@ export default class Login extends React.Component {
             return(
                 <div id={"Login"} className={"LoginedDiv"}>
                     <div className={"WelcomeInfo"}>WELCOME {this.userInfo.username} !</div>
-                    <button>Log Out</button>
+                    <button onClick={this.handleLogOut}>Log Out</button>
                 </div>
             )
         }

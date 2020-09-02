@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.11.0",
+    "blueimp-file-upload": "^10.31.0",
     "jquery": "^3.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

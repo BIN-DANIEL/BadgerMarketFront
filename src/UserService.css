@@ -1,0 +1,112 @@
+#UserService {
+    -webkit-box-shadow:3px 20px 8px #B8B1B1  ;
+    -moz-box-shadow:3px 20px 8px #B8B1B1  ;
+    box-shadow:0px 3px 20px 8px #B8B1B1  ;
+    height: 750px;
+    width: 470px;
+    background-color: white;
+}
+.UploadImages {
+    position: relative;
+    left: 10%;
+    width: 75%;
+    height: 93px;
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border: solid 2px black;
+}
+.UploadImage {
+    border: solid 2px gray;
+    width: fit-content;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-color: #DAD5D5
+}
+.InfoWrapper label {
+    margin-left: 5%;
+}
+.InfoWrapper textarea {
+    margin-left: 25%;
+}
+.InfoWrapper input {
+    margin-left: 25%;
+}
+.Tile,.Price,.CoverImage,.OtherImages {
+    height: 65px;
+    background-color: red;
+}
+.Description {
+    background-color: blue;
+    height: 100px;
+}
+.InfoWrapper {
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+}
+.UploadImage:hover {
+    color: white;
+    cursor: pointer;
+    background-color: lightcoral;
+    border: solid 2px red;
+}
+.UploadImage:active {
+    background-color: #EEEDED;
+}
+.MyItem {
+    display: inline-block;
+}
+.UploadItem {
+    float: right;
+}
+.title {
+    width: 150px;
+    height: 30px;
+}
+.description {
+
+}
+.price {
+
+}
+#UploadForm {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+}
+#ItemArea, #UploadArea {
+    width: 100%;
+    height: 700px;
+
+}
+.MyItem, .UploadItem {
+    height: 50px;
+    width: 50%;
+    font-size: 30px;
+    text-align: center;
+}
