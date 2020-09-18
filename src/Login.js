@@ -87,7 +87,7 @@ export default class Login extends React.Component {
                     this.userInfo.weChat = data.weChat;
                     this.userInfo.mail = data.mail;
                     this.userInfo.phone = data.phone;
-                    this.props.userLogined(this.userInfo);
+                    this.props.userLogined(this.userInfo, data);
                     this.setState({area:"logined"})
                 } else {
                     // TODO: Display Error Message
@@ -135,7 +135,6 @@ export default class Login extends React.Component {
             if (!data) {
                 this.userInfo.username = username;
                 this.userInfo.password = password;
-                this.props.userLogined(this.userInfo);
                 this.setState({area:"contactInfo"})
             } else {
                 $(".WarningArea").text("Username Already Exists!");
@@ -174,7 +173,7 @@ export default class Login extends React.Component {
             }
         }).done((data, textStatus, jqXHR)=>{
             if (data.regSuccess) {
-                this.props.userLogined(this.userInfo);
+                this.props.userLogined(this.userInfo, data);
                 this.setState({area: "logined"});
             } else {
                 $(".InfoToUser").text("Server Error: Wait For A While and Re-Try");

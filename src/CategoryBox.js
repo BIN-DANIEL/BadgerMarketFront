@@ -26,13 +26,6 @@ export default class CategoryBox extends React.Component {
     render() {
         return (
                 <div id={"CategoryBox"}>
-                    {/*<Category category={this.state.categories[0]} src={"./src/resources/clothes.png"} explanation={this.state.explanations[0]}/>*/}
-                    {/*<Category category={this.state.categories[1]} src={"./src/resources/shoes.png"} explanation={this.state.explanations[1]}/>*/}
-                    {/*<Category category={this.state.categories[2]} src={"./src/resources/sofa.png"} explanation={this.state.explanations[2]}/>*/}
-                    {/*<Category category={this.state.categories[3]} src={"./src/resources/computer.png"} explanation={this.state.explanations[3]}/>*/}
-                    {/*<Category category={this.state.categories[4]} src={"./src/resources/watch.png"} explanation={this.state.explanations[4]}/>*/}
-                    {/*<Category category={this.state.categories[5]} src={"./src/resources/joystick.png"} explanation={this.state.explanations[5]}/>*/}
-                    {/*<Category category={this.state.categories[6]} src={"./src/resources/book.png"} explanation={this.state.explanations[6]}/>*/}
                     <div id={"IconWrapper"}>
                         <img className={"CategoryIcon"} src={"./src/resources/clothes.png"} ></img>
                         <img className={"CategoryIcon"} src={"./src/resources/shoes.png"}></img>
@@ -43,22 +36,22 @@ export default class CategoryBox extends React.Component {
                         <img className={"CategoryIcon"} src={"./src/resources/book.png"}></img>
                     </div>
                     <div id={"CategoryWrapper"}>
-                        <div className={"category clothCat"}>{this.state.categories[0]}</div>
-                        <div className={"category shoesCat"}>{this.state.categories[1]}</div>
-                        <div className={"category furCat"}>{this.state.categories[2]}</div>
-                        <div className={"category elecCat"}>{this.state.categories[3]}</div>
-                        <div className={"category accessoryCat"}>{this.state.categories[4]}</div>
-                        <div className={"category gameCat"}>{this.state.categories[5]}</div>
-                        <div className={"category bookCat"}>{this.state.categories[6]}</div>
+                        <div onClick={() => {this.props.displayItemOfCategory(this.state.categories[0])}} className={"category clothCat"}>{this.state.categories[0]}</div>
+                        <div onClick={() => {this.props.displayItemOfCategory(this.state.categories[1])}} className={"category shoesCat"}>{this.state.categories[1]}</div>
+                        <div onClick={() => {this.props.displayItemOfCategory(this.state.categories[2])}} className={"category furCat"}>{this.state.categories[2]}</div>
+                        <div onClick={() => {this.props.displayItemOfCategory(this.state.categories[3])}} className={"category elecCat"}>{this.state.categories[3]}</div>
+                        <div onClick={() => {this.props.displayItemOfCategory(this.state.categories[4])}} className={"category accessoryCat"}>{this.state.categories[4]}</div>
+                        <div onClick={() => {this.props.displayItemOfCategory(this.state.categories[5])}} className={"category gameCat"}>{this.state.categories[5]}</div>
+                        <div onClick={() => {this.props.displayItemOfCategory(this.state.categories[6])}} className={"category bookCat"}>{this.state.categories[6]}</div>
                     </div>
                     <div id={"CategoryInCN"}>
-                        <div className={"clothCat"}>{this.state.explanations[0]}</div>
-                        <div className={"shoesCat"}>{this.state.explanations[1]}</div>
-                        <div className={"furCat"}>{this.state.explanations[2]}</div>
-                        <div className={"elecCat"}>{this.state.explanations[3]}</div>
-                        <div className={"accessoryCat"}>{this.state.explanations[4]}</div>
-                        <div className={"gameCat"}>{this.state.explanations[5]}</div>
-                        <div className={"bookCat"}>{this.state.explanations[6]}</div>
+                        <div onClick={() => {this.props.displayItemOfCategory(this.state.categories[0])}} className={"clothCat"}>{this.state.explanations[0]}</div>
+                        <div onClick={() => {this.props.displayItemOfCategory(this.state.categories[1])}} className={"shoesCat"}>{this.state.explanations[1]}</div>
+                        <div onClick={() => {this.props.displayItemOfCategory(this.state.categories[2])}} className={"furCat"}>{this.state.explanations[2]}</div>
+                        <div onClick={() => {this.props.displayItemOfCategory(this.state.categories[3])}} className={"elecCat"}>{this.state.explanations[3]}</div>
+                        <div onClick={() => {this.props.displayItemOfCategory(this.state.categories[4])}} className={"accessoryCat"}>{this.state.explanations[4]}</div>
+                        <div onClick={() => {this.props.displayItemOfCategory(this.state.categories[5])}} className={"gameCat"}>{this.state.explanations[5]}</div>
+                        <div onClick={() => {this.props.displayItemOfCategory(this.state.categories[6])}} className={"bookCat"}>{this.state.explanations[6]}</div>
                     </div>
                 </div>
         )

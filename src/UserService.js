@@ -8,20 +8,23 @@ export default class UserService extends React.Component {
         this.inUploadArea = this.inUploadArea.bind(this);
         this.inItemArea = this.inItemArea.bind(this);
         this.state = {
-            area:"upload"
+            area:"upload",
+            items: this.props.userItems
         }
     }
-    inUploadArea(e) {
-        e.preventDefault();
+    inUploadArea() {
         // $(".UploadItem").removeClass("notSelectEffect").removeClass("hoverEffect");
         // $(".MyItem").addClass("notSelectEffect").addClass("hoverEffect");
         this.setState({area: "upload"});
     }
-    inItemArea(e) {
-        e.preventDefault();
-        // $(".UploadItem").addClass("notSelectEffect").addClass("hoverEffect");
-        // $(".MyItem").removeClass("notSelectEffect").removeClass("hoverEffect");
-        this.setState({area: "item"});
+    inItemArea(item) {
+        if (item.itemId != null) {
+            let items = [...this.state.items];
+            items.push(item);
+            this.setState({area:"item", items: items});
+        } else {
+            this.setState({area: "item"});
+        }
     }
     render() {
         if (this.state.area === "item") {
@@ -29,7 +32,7 @@ export default class UserService extends React.Component {
                 <div id={"UserService"}>
                     <div onClick={this.inUploadArea} className={"UploadItem notSelectEffect hoverEffect"}>Upload Items</div>
                     <div onClick={this.inItemArea} className={"MyItem "}>My Items</div>
-                    <ItemArea/>
+                    <ItemArea userItems={this.state.items}/>
                 </div>
             )
         } else if (this.state.area === "upload"){
@@ -37,7 +40,7 @@ export default class UserService extends React.Component {
                 <div id={"UserService"}>
                     <div onClick={this.inUploadArea} className={"UploadItem"}>Upload Items</div>
                     <div onClick={this.inItemArea} className={"MyItem notSelectEffect hoverEffect"}>My Items</div>
-                    <UploadArea/>
+                    <UploadArea inItemArea = {this.inItemArea} getUserName={this.props.getUserName}/>
                 </div>
             )
         }

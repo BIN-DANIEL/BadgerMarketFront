@@ -7,20 +7,38 @@ import "./DisplayBox.css";
 export default class DisplayBox extends React.Component {
     constructor(props) {
         super(props);
+        this.zoomClick = this.zoomClick.bind(this);
+    }
+    zoomClick(url, className) {
+        console.log("a");
+
+        let img = '<img class="zoomClick"src=' + url + '>';
+        $("."+className).prepend(img);
+        $("."+className + " .zoomClick").click(() => {
+            $("." + className + " .zoomClick").remove();
+        })
     }
     //props.itemsId 是一个储存了要被展示的商品的ID的数组
     render() {
+        let items = this.props.itemsToBeDisplayed;
+        let pages = this.props.pages;
         return (
+            <div id={"DisplayBox_"}>
             <div id={"DisplayBox"}>
-                {/*将Id传递到ItemContainer中, 由它自己来获取信息<ItemContainer itemId={this.props[1]}*/}
-                    <ItemContainer itemId={this.props.itemsId[0]}/>
-                    <ItemContainer itemId={this.props.itemsId[1]}/>
-                    <ItemContainer itemId={this.props.itemsId[2]}/>
-                    <ItemContainer itemId={this.props.itemsId[3]}/>
-                    <ItemContainer itemId={this.props.itemsId[4]}/>
-                    <ItemContainer itemId={this.props.itemsId[5]}/>
-                    <ItemContainer itemId={this.props.itemsId[6]}/>
-                    <ItemContainer itemId={this.props.itemsId[7]}/>
+                {items.map((item, index) => {
+                    return(<div key={index} className={"ItemContainer" + index}>
+                        <ItemContainer zoomClick={this.zoomClick}  nameOfClass={"ItemContainer" + index}  item={item}/>
+                    </div>)
+                })}
+            </div>
+                <div id={"selectionBar"}>
+                    {
+                    pages.map((item, index) => {
+                        return <button key={index} onClick={()=>{this.props.setPage(index + 1)}}>{index + 1}</button>
+                    })
+                }
+
+                </div>
             </div>
         )
     }

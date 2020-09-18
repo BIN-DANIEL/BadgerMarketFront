@@ -1,6 +1,6 @@
 .ItemContainer {
     position: relative;
-    height: 300px;
+    height: 400px;
     width: 220px;
     border: solid 2px transparent;
     display: flex;
@@ -11,28 +11,78 @@
     -webkit-flex-direction: column;
     -webkit-justify-content: space-between;
     -webkit-align-items: center;
+    overflow-y: scroll;
 }
 .ItemContainer:hover {
     border:solid 2px dodgerblue;
     -webkit-box-shadow:0px 3px 3px gray ;
     -moz-box-shadow:0px 3px 3px gray ;
     box-shadow:0px 3px 3px gray ;
-    cursor: pointer;
-
 }
+.ItemTitle::-webkit-scrollbar {
+    display: none;
+}
+.ItemTitle{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+    word-break: keep-all;
 
+    overflow-x: scroll;
+}
+.ItemContact::-webkit-scrollbar {
+    display: none;
+}
+.ItemContact {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+    word-break: keep-all;
+
+    overflow-x: scroll;
+}
+.ItemContact p {
+    display: inline;
+    font-weight: bolder;
+}
 .ItemPrice {
     background: antiquewhite;
 }
+.ItemImageContainer::-webkit-scrollbar {
+    display: none;
+
+}
+.zoomClick {
+    height: 400px !important;
+    width: 400px !important;
+    z-index: 10;
+    position: absolute;
+}
+.zoomClick:hover {
+    cursor: pointer;
+}
 .ItemImageContainer {
-    height: 250px;
+    height: 200px;
     width: 100%; /*Extends from ItemContainer*/
+    overflow-x: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.ItemImageContainer:hover {
+    cursor: pointer;
 }
 .ItemDescription {
     background-color: lightblue;
-    -webkit-flex-basis: 70px;
-    flex-basis: 70px;
+    /*-webkit-flex-basis: 70px;*/
+    /*flex-basis: 70px;*/
+    height: 70px;
     width: 100%;
+    word-break:break-all;
+    overflow: auto;
 }
 .ItemPrice {
     flex-basis: 30px;

@@ -1,5 +1,5 @@
 #DisplayBox {
-    height: 750px;
+    height: 820px;
     width: 900px;
     background: white;
     display: flex;
@@ -9,8 +9,26 @@
     -webkit-flex-wrap: wrap;
     -webkit-justify-content: flex-start;
     overflow-y: scroll;
+}
+#DisplayBox_ {
+    width: 900px;
     -webkit-box-shadow:3px 20px 8px #B8B1B1  ;
     -moz-box-shadow:3px 20px 8px #B8B1B1  ;
     box-shadow:0px 3px 20px 8px #B8B1B1  ;
+}
+#selectionBar {
+    width: 900px;
+    height: 40px;
+    background: white;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+}
+#selectionBar button{
+    font-size: 20px;
+    margin-left: 5px;
+    width: 38px;
+    height: 38px;
 }
 
