@@ -55,10 +55,12 @@ export default class Login extends React.Component {
      */
     handleLogin(e) {
             e.preventDefault();
+            let regEN = /[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im;
+            let regCN = /[·！#￥（——）：；“”‘、，|《。》？、【】[\]]/im;
             let username = $("#Username").val();
             username = username.trim();
             let password = $("#Password").val();
-            password = password.trim()
+            password = password.trim();
             if (username === "") {
                 $(".WarningArea").text("Please Enter The Username!");
                 $(".WarningArea").css("visibility", "visible");
@@ -66,6 +68,11 @@ export default class Login extends React.Component {
             }
             if (password === "") {
                 $(".WarningArea").text("Please Enter The Password!");
+                $(".WarningArea").css("visibility", "visible");
+                return;
+            }
+            if (regCN.test(username) || regEN.test(username) || regCN.test(password) || regEN.test(password)) {
+                $(".WarningArea").text("Special Character Disallowed");
                 $(".WarningArea").css("visibility", "visible");
                 return;
             }
@@ -102,9 +109,14 @@ export default class Login extends React.Component {
         let username = $('#Username').val();
         let password = $('.RegPassword input').val();
         let re_password = $('.RegRePassword input').val();
-        //TODO: Filter Special characters
+
         if (username === "") {
             $(".WarningArea").text("Please Enter The Username!");
+            $(".WarningArea").css("visibility", "visible");
+            return;
+        }
+        if (this.props.containSpecialChar(username)) {
+            $(".WarningArea").text("Special Characters Disallowed!");
             $(".WarningArea").css("visibility", "visible");
             return;
         }
@@ -120,6 +132,11 @@ export default class Login extends React.Component {
         }
         if (password != re_password) {
             $(".WarningArea").text("Re-entered Password Does'nt Match!");
+            $(".WarningArea").css("visibility", "visible");
+            return;
+        }
+        if (this.props.containSpecialChar(password)) {
+            $(".WarningArea").text("Special Characters Disallowed!");
             $(".WarningArea").css("visibility", "visible");
             return;
         }

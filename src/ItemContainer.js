@@ -32,17 +32,7 @@ export default class ItemContainer extends React.Component {
        let otherImages = Object.values({...itemInfo.otherImages});
       return (
           <div className={"ItemContainer"} onMouseEnter={this.handleMouseOver} onMouseLeave={this.handleMouseLeave}>
-                {/*<label>{this.props.itemTitle}</label>*/}
-                {/*src should be this.props.itemSrc, 现在只是展示Demo作为效果*/}
-              {/*private String title; // title of the item*/}
-              {/*private String description; // Item's description*/}
-              {/*private double price; // Item's price(in $)*/}
-              {/*private String qq;*/}
-              {/*private String weChat;*/}
-              {/*private String phone;*/}
-              {/*private String mail;*/}
-              {/*String coverImageHttpURL;*/}
-              {/*List<String> otherImages;*/}
+
               <div className={"ItemTitle"}><div>{itemInfo.title}</div></div>
                 <div className={"ItemImageContainer"}>
                   <img className={"ItemImage"} src={itemInfo.coverImageHttpURL} onClick={(e)=>{e.preventDefault();e.stopPropagation(); this.props.zoomClick(itemInfo.coverImageHttpURL, this.props.nameOfClass)}}></img>

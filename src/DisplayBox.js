@@ -10,8 +10,6 @@ export default class DisplayBox extends React.Component {
         this.zoomClick = this.zoomClick.bind(this);
     }
     zoomClick(url, className) {
-        console.log("a");
-
         let img = '<img class="zoomClick"src=' + url + '>';
         $("."+className).prepend(img);
         $("."+className + " .zoomClick").click(() => {

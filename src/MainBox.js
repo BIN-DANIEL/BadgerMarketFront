@@ -20,7 +20,8 @@ export default class MainBox extends React.Component {
             login: false,
             pages: [],
             category: "Clothes",
-            curKeyWord: ""
+            curKeyWord: "",
+            userItems: []
         };
         this.handleSearch = this.handleSearch.bind(this);
         this.userLogined = this.userLogined.bind(this);
@@ -29,19 +30,17 @@ export default class MainBox extends React.Component {
         this.displayItemOfCategory = this.displayItemOfCategory.bind(this);
         this.setPage = this.setPage.bind(this);
         this.displayItemMatchKeyWord = this.displayItemMatchKeyWord.bind(this);
+        this.deleteItem = this.deleteItem.bind(this);
+        this.addItem = this.addItem.bind(this);
+        this.containSpecialChar = this.containSpecialChar.bind(this);
         this.username =  null;
         this.password = null;
         this.qq = null;
         this.weChat = null;
         this.mail = null;
         this.phone = null;
-        this.userItems = [];
     }
 
-    validateUserInput(input) {
-        let reg = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？%+_]");
-
-    }
     handleSearch(e) {
         e.preventDefault();
     }
@@ -58,6 +57,7 @@ export default class MainBox extends React.Component {
         //TODO: query user Item.
         //itemId: "FDCDE99ACFFD4B33A0C586FA7486CE00", title: "NS", description: "awdawdawd", price: 111, username: "StanDou"
         //coverImageHttpURL: "localhost:8080/665e40d0e00c4d47808cb9d9d2649726.png", otherImages: Array(1)
+        let newUserItems = [];
         for (let i = 0; i < data.itemInfo.length; i++) {
             let itemInfo = data.itemInfo[i];
             let itemImageResource = data.itemImageResource[i];
@@ -69,9 +69,9 @@ export default class MainBox extends React.Component {
                 coverImageHttpURL: itemImageResource.coverImageHttpURL,
                 otherImages: itemImageResource.otherImages
             };
-            this.userItems.push(item);
+            newUserItems.push(item);
         }
-        this.setState({login: true})
+        this.setState({login: true, userItems: newUserItems})
     }
     userLogOut() {
         this.username = null;
@@ -80,8 +80,7 @@ export default class MainBox extends React.Component {
         this.weChat = null;
         this.mail = null;
         this.phone = null;
-        this.userItems = [];
-        this.setState({login: false})
+        this.setState({login: false, userItems:[]})
     }
     componentDidMount() {
         $.ajax({
@@ -95,6 +94,30 @@ export default class MainBox extends React.Component {
             this.setState({itemsToBeDisplayed: data[1], pages: data[0]});
 
         })
+    }
+    deleteItem(itemId) {
+        $.ajax({
+            url: URLs.buildDeleteItemURL(itemId),
+            method: "PUT",
+            error: (jqXHR, textStatus, errorThrown) => {
+                console.log(errorThrown)
+            }
+        }).done((data, textStatus, jqXHR)=>{
+            if (data) { // data is success or false
+                let userItems = [...this.state.userItems];
+                userItems = userItems.filter((item) => {
+                    return item.itemId != itemId;
+                });
+                this.setState({userItems: userItems});
+            } else {
+                alert("DELETE FAILED, TRY LATER");
+            }
+        })
+    }
+    addItem(item) {
+        let userItems = [...this.state.userItems];
+        userItems.push(item);
+        this.setState({userItems: userItems});
     }
     setPage(page) {
         if (this.state.curKeyWord == "") {
@@ -127,6 +150,11 @@ export default class MainBox extends React.Component {
             this.setState({itemsToBeDisplayed: data[1], pages: data[0], category:category, curKeyWord: ""});
         })
     }
+    containSpecialChar(text) {
+        let regEN = /[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im;
+        let regCN = /[·！#￥（——）：；“”‘、，|《。》？、【】[\]]/im;
+        return regCN.test(text) || regEN.test(text);
+    }
     //By Shao Bin
     render() {
         if (this.state.login) {
@@ -139,13 +167,13 @@ export default class MainBox extends React.Component {
                         <CategoryBox displayItemOfCategory={this.displayItemOfCategory}/>
                     </div>
                     <div className={"SearchBar_Main"}>
-                        <SearchBar displayItemMatchKeyWord = {this.displayItemMatchKeyWord} handleSearch = {this.handleSearch} />
+                        <SearchBar containSpecialChar={this.containSpecialChar} displayItemMatchKeyWord = {this.displayItemMatchKeyWord} handleSearch = {this.handleSearch} />
                     </div>
                     <div className={"Login_Main"}>
-                        <Login userLogOut={this.userLogOut} userLogined={this.userLogined}/>
+                        <Login containSpecialChar={this.containSpecialChar} userLogOut={this.userLogOut} userLogined={this.userLogined}/>
                     </div>
                     <div className={"UserService_Main"}>
-                        <UserService userItems={this.userItems} getUserName={this.getUserName}/>
+                        <UserService containSpecialChar={this.containSpecialChar} addItem={this.addItem} deleteItem={this.deleteItem} userItems={this.state.userItems} getUserName={this.getUserName}/>
                     </div>
                 </div>
             )
@@ -159,10 +187,10 @@ export default class MainBox extends React.Component {
                          <CategoryBox displayItemOfCategory={this.displayItemOfCategory}/>
                      </div>
                      <div className={"SearchBar_Main"}>
-                         <SearchBar displayItemMatchKeyWord = {this.displayItemMatchKeyWord} handleSearch = {this.handleSearch} />
+                         <SearchBar containSpecialChar={this.containSpecialChar} displayItemMatchKeyWord = {this.displayItemMatchKeyWord} handleSearch = {this.handleSearch} />
                      </div>
                      <div className={"Login_Main"}>
-                         <Login userLogOut={this.userLogOut} userLogined={this.userLogined}/>
+                         <Login containSpecialChar={this.containSpecialChar} userLogOut={this.userLogOut} userLogined={this.userLogined}/>
                      </div>
                  </div>
              )

@@ -19,9 +19,8 @@ export default class UserService extends React.Component {
     }
     inItemArea(item) {
         if (item.itemId != null) {
-            let items = [...this.state.items];
-            items.push(item);
-            this.setState({area:"item", items: items});
+            this.props.addItem(item);
+            this.setState({area: "item"});
         } else {
             this.setState({area: "item"});
         }
@@ -32,7 +31,7 @@ export default class UserService extends React.Component {
                 <div id={"UserService"}>
                     <div onClick={this.inUploadArea} className={"UploadItem notSelectEffect hoverEffect"}>Upload Items</div>
                     <div onClick={this.inItemArea} className={"MyItem "}>My Items</div>
-                    <ItemArea userItems={this.state.items}/>
+                    <ItemArea deleteItem={this.props.deleteItem}  userItems={this.props.userItems}/>
                 </div>
             )
         } else if (this.state.area === "upload"){
@@ -40,7 +39,7 @@ export default class UserService extends React.Component {
                 <div id={"UserService"}>
                     <div onClick={this.inUploadArea} className={"UploadItem"}>Upload Items</div>
                     <div onClick={this.inItemArea} className={"MyItem notSelectEffect hoverEffect"}>My Items</div>
-                    <UploadArea inItemArea = {this.inItemArea} getUserName={this.props.getUserName}/>
+                    <UploadArea containSpecialChar={this.props.containSpecialChar}   inItemArea = {this.inItemArea} getUserName={this.props.getUserName}/>
                 </div>
             )
         }

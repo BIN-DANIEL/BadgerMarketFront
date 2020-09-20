@@ -95,6 +95,11 @@ export default class UploadArea extends React.Component {
             return;
         }
         let description = $(".description").val();
+        let checkDes = /[<>]/im;
+        if (this.props.containSpecialChar(title) || checkDes.test(description)) {
+            $(".WarnInfo").css({"visibility": "visible"}).text("Special Characters Disallowed");
+            return;
+        }
         let coverImage = [...this.state.Cover];
         let otherImages = [...this.state.FileList];
         data.append("title", title);
@@ -102,12 +107,12 @@ export default class UploadArea extends React.Component {
         data.append("description", description);
         data.append("category", category);
         if (coverImage.length == 0) {
-            // data.append("coverImage", null);
+            //do nothing
         } else {
             data.append("coverImage", coverImage[0]);
         }
         if (otherImages.length == 0) {
-            // data.append("otherImages", null);
+            //do nothing
         } else {
             for (let file of otherImages) {
                 data.append("otherImages", file);

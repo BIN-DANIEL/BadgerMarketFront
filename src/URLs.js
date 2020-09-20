@@ -7,6 +7,10 @@ function URLs() {
     this.uploadItemURL =  this.root + "uploadItem";
     this.fetchItemURL = this.root + "fetchItem";
     this.findKeyWord = this.root + "searchItem";
+    this.deleteItemURL = this.root + "deleteItem";
+    this.buildDeleteItemURL = (itemId) => {
+        return this.deleteItemURL + "?itemId=" + itemId;
+    }
     this.buildLoginURL = (username, password) => {
         return this.loginURL + "?username=" + username + "&password="+password;
     }
